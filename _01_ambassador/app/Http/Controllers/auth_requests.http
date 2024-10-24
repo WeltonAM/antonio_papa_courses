@@ -18,3 +18,8 @@ Content-Type: application/json
     "email": "john@doe.com",
     "password": "12345678"
 }
+
+### Get user
+GET http://localhost:8003/api/admin/user
+Content-Type: application/json
+Authorization: Bearer 3|7CdBcI3IxpxsfJkxxPjD9hJQQtEm9Rr2ceGSGA3dcH927fa655
