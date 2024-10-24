@@ -1,0 +1,20 @@
+### Register
+POST http://localhost:8003/api/admin/register
+Content-Type: application/json
+
+{
+    "first_name": "John",
+    "second_name": "Doe",
+    "email": "john@doe.com",
+    "password": "12345678",
+    "password_confirm": "12345678"
+}
+
+### Login
+POST http://localhost:8003/api/admin/login
+Content-Type: application/json
+
+{
+    "email": "john@doe.com",
+    "password": "12345678"
+}

@@ -13,6 +13,7 @@
 ## Project Stack
 - PHP 
 - Laravel
+- Laral API
 - Docker
 
 ### How to run the project
