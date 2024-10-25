@@ -13,7 +13,7 @@
 
 namespace App\Models{
 /**
- * 
+ *
  *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Link newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Link newQuery()
@@ -24,7 +24,7 @@ namespace App\Models{
 
 namespace App\Models{
 /**
- * 
+ *
  *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|LinkProduct newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|LinkProduct newQuery()
@@ -35,7 +35,7 @@ namespace App\Models{
 
 namespace App\Models{
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $title
@@ -61,11 +61,11 @@ namespace App\Models{
 
 namespace App\Models{
 /**
- * 
+ *
  *
  * @property int $id
  * @property string $first_name
- * @property string $second_name
+ * @property string $last_name
  * @property string $email
  * @property string|null $email_verified_at
  * @property string $password

@@ -12,7 +12,7 @@ use Laravel\Sanctum\HasApiTokens;
  *
  * @property int $id
  * @property string $first_name
- * @property string $second_name
+ * @property string $last_name
  * @property string $email
  * @property string|null $email_verified_at
  * @property string $password
@@ -57,5 +57,15 @@ class User extends Authenticatable
     public function scopeAdmins($query)
     {
         return $query->where('is_admin', 1);
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function getRevenueAttribute()
+    {
+        return $this->orders->sum(fn (Order $order) => $order->ambassador_revenue);
     }
 }

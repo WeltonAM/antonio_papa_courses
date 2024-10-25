@@ -1,7 +1,36 @@
-@API_PORT = 8000
-@API_TOKEN = 8|b8skqtb46o5uHU1AQj63Vo7M1SEP79RBv2tuUql6fba9865d
+@API_PORT = 8003
+@API_TOKEN = 2|E14fdfUIbVxQoMa2eujbNo37dD3RoEfe2Hutew5w4d75542e
 
-### Get ambassadors
-GET http://localhost:{{API_PORT}}/api/admin/ambassadors
+
+### Login
+POST http://localhost:{{API_PORT}}/api/ambassador/login
+Content-Type: application/json
+
+{
+    "email": "ansley.fahey@example.org",
+    "password": "password"
+}
+
+### Logout
+POST http://localhost:{{API_PORT}}/api/ambassador/logout
+Content-Type: application/json
+Authorization: Bearer {{API_TOKEN}}
+
+### Register
+POST http://localhost:{{API_PORT}}/api/ambassador/register
+Content-Type: application/json
+Authorization: Bearer {{API_TOKEN}}
+
+{
+    "first_name": "Joshua",
+    "last_name": "Doe",
+    "email": "joshua@doe.com",
+    "password": "12345678",
+    "password_confirm": "12345678",
+    "is_admin": 0
+}
+
+### Get user
+GET http://localhost:{{API_PORT}}/api/ambassador/user
 Content-Type: application/json
 Authorization: Bearer {{API_TOKEN}}

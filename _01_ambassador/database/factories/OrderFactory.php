@@ -16,7 +16,7 @@ class OrderFactory extends Factory
             'user_id' => $link->user->id,
             'ambassador_email' => $link->user->email,
             'first_name' => $link->user->first_name,
-            'last_name' => $link->user->second_name,
+            'last_name' => $link->user->last_name,
             'email' => $link->user->email,
             'complete' => 1,
         ];

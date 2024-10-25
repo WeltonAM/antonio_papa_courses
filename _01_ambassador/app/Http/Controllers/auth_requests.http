@@ -1,6 +1,5 @@
-@API_PORT = 8000
-@API_TOKEN = 8|b8skqtb46o5uHU1AQj63Vo7M1SEP79RBv2tuUql6fba9865d
-
+@API_PORT = 8003
+@API_TOKEN = 3|ZQ56ib4godBNm5gm2kSvdZc5K2j22gzGPS17WzzR80472637
 
 ### Register
 POST http://localhost:{{API_PORT}}/api/admin/register
@@ -8,7 +7,7 @@ Content-Type: application/json
 
 {
     "first_name": "John",
-    "second_name": "Doe",
+    "last_name": "Doe",
     "email": "john@doe.com",
     "password": "12345678",
     "password_confirm": "12345678"
@@ -28,6 +27,11 @@ GET http://localhost:{{API_PORT}}/api/admin/user
 Content-Type: application/json
 Authorization: Bearer {{API_TOKEN}}
 
+### Get ambassadors
+GET http://localhost:{{API_PORT}}/api/admin/ambassadors
+Content-Type: application/json
+Authorization: Bearer {{API_TOKEN}}
+
 ### Logout
 POST http://localhost:{{API_PORT}}/api/admin/logout
 Content-Type: application/json
@@ -39,7 +43,7 @@ Authorization: Bearer {{API_TOKEN}}
 
 {
     "first_name": "Doe",
-    "second_name": "John",
+    "last_name": "John",
     "email": "doe@john.com"
 }
 
