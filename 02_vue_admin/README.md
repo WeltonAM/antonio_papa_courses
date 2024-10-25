@@ -14,11 +14,11 @@
 The Task Vue Admin is a project that allows you to manage your tasks.
 
 ## Tech Stack
-- Vue 3
-- Vuetify 3
-- Vuex 4
-- Vue Router 4
-- Vite
+- Vue.js
+- Vue Router
+- Vuex
+- Vuetify
+- Axios
 
 ### How to execute the app
 
