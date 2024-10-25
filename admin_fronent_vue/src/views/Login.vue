@@ -15,6 +15,7 @@
         </div>
         
         <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+        <a href="/register" class="text-center">Sing up</a>
       </form>
     </main>
   </div>
@@ -34,14 +35,25 @@ export default defineComponent({
   },
   methods: {
     async submit() {
-      await axios.post('login', {
-        email: this.email,
-        password: this.password
-      });
+      try {
+        const response = await axios.post('login', {
+          email: this.email,
+          password: this.password
+        });
 
-      await this.$router.push('/');
+        const token = response.data.token; 
+        localStorage.setItem('token', token); 
+
+        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+        
+        console.log('Login bem-sucedido:', response.data);
+        await this.$router.push('/');
+      } catch (error) {
+        console.error('Erro de autenticação:', error.response.data);
+        alert('Erro de autenticação: ' + (error.response.data.error || 'Erro desconhecido'));
+      }
     }
-  }
+  },
 })
 </script>
 

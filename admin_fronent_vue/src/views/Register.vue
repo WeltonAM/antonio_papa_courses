@@ -1,36 +1,39 @@
 <template>
-  <main class="form-signin">
-    <form @submit.prevent="submit">
-      <h1 class="h3 mb-3 fw-normal">Please register</h1>
+  <div class="d-flex flex-column align-items-center vh-100">
+    <main class="form-signin">
+      <form @submit.prevent="submit" class="d-flex flex-column justify-center gap-4">
+        <h1 class="fw-normal text-center">Sing up</h1>
 
-      <div class="form-floating">
-        <input v-model="first_name" class="form-control" placeholder="First Name">
-        <label>First Name</label>
-      </div>
+        <div class="form-floating">
+          <input v-model="first_name" class="form-control" placeholder="First Name">
+          <label>First Name</label>
+        </div>
 
-      <div class="form-floating">
-        <input v-model="last_name" class="form-control" placeholder="Last Name">
-        <label>Last Name</label>
-      </div>
+        <div class="form-floating">
+          <input v-model="last_name" class="form-control" placeholder="Last Name">
+          <label>Last Name</label>
+        </div>
 
-      <div class="form-floating">
-        <input v-model="email" type="email" class="form-control" placeholder="name@example.com">
-        <label>Email address</label>
-      </div>
+        <div class="form-floating">
+          <input v-model="email" type="email" class="form-control" placeholder="name@example.com">
+          <label>Email address</label>
+        </div>
 
-      <div class="form-floating">
-        <input v-model="password" type="password" class="form-control" placeholder="Password">
-        <label>Password</label>
-      </div>
+        <div class="form-floating">
+          <input v-model="password" type="password" class="form-control" placeholder="Password">
+          <label>Password</label>
+        </div>
 
-      <div class="form-floating">
-        <input v-model="password_confirm" type="password" class="form-control" placeholder="Password Confirm">
-        <label>Password Confirm</label>
-      </div>
+        <div class="form-floating">
+          <input v-model="password_confirm" type="password" class="form-control" placeholder="Password Confirm">
+          <label>Password Confirm</label>
+        </div>
 
-      <button class="w-100 btn btn-lg btn-primary" type="submit">Submit</button>
-    </form>
-  </main>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Submit</button>
+        <a href="/login" class="text-center">Sing in</a>
+      </form>
+    </main>
+  </div>
 </template>
 
 <script>

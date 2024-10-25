@@ -10,8 +10,7 @@ import Users from '@/views/Users.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
-  // history: createWebHistory(import.meta.env.BASE_URL),
-  history: createWebHistory(),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {path: '/login', component: Login},
     {path: '/register', component: Register},
@@ -31,11 +30,5 @@ const router = createRouter({
     }
   ]
 })
-
-// const router = new VueRouter({
-//   mode: 'history',
-//   base: process.env.BASE_URL,
-//   routes
-// })
 
 export default router

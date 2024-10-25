@@ -20,18 +20,25 @@
 import Nav from "@/components/Nav.vue";
 import Menu from "@/components/Menu.vue";
 import axios from "axios";
-import {User} from "@/models/user";
 import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "Layout",
   components: {Menu, Nav},
   async mounted() {
-    try {
-      const {data} = await axios.get('user');
+    const token = localStorage.getItem('token');
 
-      await this.$store.dispatch('setUser', data);
-    } catch (e) {
+    if (token) {
+      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      
+      try {
+        const { data } = await axios.get('user');
+        await this.$store.dispatch('setUser', data);
+      } catch (e) {
+        console.error('Erro ao obter dados do usuário:', e);
+        await this.$router.push('/login');
+      }
+    } else {
       await this.$router.push('/login');
     }
   }

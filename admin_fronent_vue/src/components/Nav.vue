@@ -4,7 +4,7 @@
 
     <nav class="my-2 my-md-0 mr-md-3">
       <router-link to="/profile" class="p-2 text-white text-decoration-none">
-        <!-- {{ user.first_name }} {{ user.last_name }} -->
+        {{ user.first_name }} {{ user.last_name }}
       </router-link>
       <a href="#" class="p-2 text-white text-decoration-none" @click="logout">Sign out</a>
     </nav>
@@ -20,7 +20,8 @@ export default defineComponent({
   methods: {
     async logout() {
       await axios.post('logout');
-
+      localStorage.removeItem('token'); 
+      delete axios.defaults.headers.common['Authorization'];
       await this.$router.push('/login');
     }
   },
