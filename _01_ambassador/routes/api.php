@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LinkController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\StatsController;
 use App\Http\Middleware\ScopeAdminMiddleware;
 use App\Http\Middleware\ScopeAmbassadorMiddleware;
 use Illuminate\Support\Facades\Route;
@@ -42,4 +43,8 @@ Route::prefix('ambassador')->group(function () {
 
     Route::get('products/frontend', [ProductController::class, 'frontend'])->name('frontend.products');
     Route::get('products/backend', [ProductController::class, 'backend'])->name('backend.products');
+
+    Route::middleware(['auth:sanctum', ScopeAmbassadorMiddleware::class])->group(function () {
+        Route::get('stats', [StatsController::class, 'index'])->name('stats');
+    });
 });

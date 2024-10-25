@@ -44,3 +44,8 @@ Authorization: Bearer {{API_TOKEN}}
 GET http://localhost:{{API_PORT}}/api/ambassador/products/backend?sort=desc
 Content-Type: application/json
 Authorization: Bearer {{API_TOKEN}}
+
+### Get stats
+GET http://localhost:{{API_PORT}}/api/ambassador/stats
+Content-Type: application/json
+Authorization: Bearer {{API_TOKEN}}
