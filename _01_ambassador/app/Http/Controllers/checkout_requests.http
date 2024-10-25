@@ -1,0 +1,6 @@
+@API_PORT = 8003
+@API_TOKEN = 8|b8skqtb46o5uHU1AQj63Vo7M1SEP79RBv2tuUql6fba9865d
+
+### Get links
+GET http://localhost:{{API_PORT}}/api/checkout/links/9S7vaD
+Content-Type: application/json

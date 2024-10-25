@@ -51,3 +51,8 @@ Route::prefix('ambassador')->group(function () {
         Route::post('links', [LinkController::class, 'store'])->name('links.store');
     });
 });
+
+//CHECKOUT
+Route::prefix('checkout')->group(function () {
+    Route::get('links/{code}', [LinkController::class, 'index'])->name('checkout');
+});
