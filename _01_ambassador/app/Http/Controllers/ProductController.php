@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\ProductUpdatedEvent;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
@@ -19,6 +20,8 @@ class ProductController extends Controller
     {
         $product = Product::create($request->only('title', 'description', 'image', 'price'));
 
+        event(new ProductUpdatedEvent);
+
         return response($product, Response::HTTP_CREATED);
     }
 
@@ -31,12 +34,16 @@ class ProductController extends Controller
     {
         $product->update($request->only('title', 'description', 'image', 'price'));
 
+        event(new ProductUpdatedEvent);
+
         return response($product, Response::HTTP_ACCEPTED);
     }
 
     public function destroy(Product $product)
     {
         $product->delete();
+
+        event(new ProductUpdatedEvent);
 
         return response(null, Response::HTTP_NO_CONTENT);
     }
@@ -47,7 +54,6 @@ class ProductController extends Controller
             return $products;
         }
 
-        sleep(2);
         $products = Product::all();
 
         Cache::set('products.frontend', $products, 30 * 60);
@@ -57,8 +63,6 @@ class ProductController extends Controller
 
     public function backend(Request $request)
     {
-        // Cache::forget('products.backend');
-
         $page = $request->get('page', 1);
 
         $products = Cache::remember('products.backend', 30 * 60, fn () => Product::all());
