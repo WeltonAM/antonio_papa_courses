@@ -5,10 +5,12 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class AmbassadorSeeder extends Seeder
 {
     public function run(): void
     {
-        $this->call(AmbassadorSeeder::class);
+        User::factory(30)->create([
+            'is_admin' => 0,
+        ]);
     }
 }

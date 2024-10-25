@@ -1,0 +1,6 @@
+@API_PORT = 8000
+
+### Get ambassadors
+GET http://localhost:{{API_PORT}}/api/admin/ambassadors
+Content-Type: application/json
+Authorization: Bearer 7|7MITbFkgQx94R09uwGcj9u1OLgKBwgCUps9I4tFa4e5e3180

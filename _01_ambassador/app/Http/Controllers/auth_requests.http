@@ -1,5 +1,7 @@
+@API_PORT = 8000
+
 ### Register
-POST http://localhost:8003/api/admin/register
+POST http://localhost:{{API_PORT}}/api/admin/register
 Content-Type: application/json
 
 {
@@ -11,7 +13,7 @@ Content-Type: application/json
 }
 
 ### Login
-POST http://localhost:8003/api/admin/login
+POST http://localhost:{{API_PORT}}/api/admin/login
 Content-Type: application/json
 
 {
@@ -20,6 +22,31 @@ Content-Type: application/json
 }
 
 ### Get user
-GET http://localhost:8003/api/admin/user
+GET http://localhost:{{API_PORT}}/api/admin/user
 Content-Type: application/json
-Authorization: Bearer 3|7CdBcI3IxpxsfJkxxPjD9hJQQtEm9Rr2ceGSGA3dcH927fa655
+Authorization: Bearer 7|7MITbFkgQx94R09uwGcj9u1OLgKBwgCUps9I4tFa4e5e3180
+
+### Logout
+POST http://localhost:{{API_PORT}}/api/admin/logout
+Content-Type: application/json
+
+### Update user info
+POST http://localhost:{{API_PORT}}/api/admin/users/info
+Content-Type: application/json
+Authorization: Bearer 5|7CJJJTQgvfaZ4JGVRsmAEFd2m5YZQv7lVNYhevIM1ib498e64a
+
+{
+    "first_name": "Doe",
+    "second_name": "John",
+    "email": "doe@john.com"
+}
+
+### Update user password
+POST http://localhost:{{API_PORT}}/api/admin/users/password
+Content-Type: application/json
+Authorization: Bearer 3|7CDbB23WWD9VXhG1u8Dpuhok8tYWDtYIoEwqA3uB8Le141349a
+
+{
+    "password": "12345678",
+    "password_confirm": "12345678"
+}
