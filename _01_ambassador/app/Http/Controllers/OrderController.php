@@ -7,6 +7,7 @@ use App\Models\Link;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Product;
+use Cartalyst\Stripe\Stripe;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpFoundation\Response;
@@ -40,7 +41,7 @@ class OrderController extends Controller
             $order->city = $request->input('city');
             $order->zip = $request->input('zip');
 
-            $order->save();
+            $lineItems = [];
 
             foreach($request->input('products') as $item) {
                 $product = Product::find($item['product_id']);
@@ -55,14 +56,43 @@ class OrderController extends Controller
                 $orderItem->admin_revenue = 0.9 * $product->price * $item['quantity'];
 
                 $orderItem->save();
+
+                $lineItems[] = [
+                    'name' => $product->title,
+                    'description' => $product->description,
+                    'images' => [
+                        $product->image
+                    ],
+                    'amount' => 100 * $product->price,
+                    'current' => 'usd',
+                    'quantity' => $item['quantity'],
+                ];
             }
 
+            $stripe = Stripe::make(env('STRIPE_SECRET'));
+
+            $source = $stripe->checkout()->session()->create([
+                'payment_method_types' => ['card'],
+                'line_items' => $lineItems,
+                'success_url' => env('CHECKOUT_URL') . '/success?source={CHECKOUT_SESSION_ID}',
+                'cancel_url' => env('CHECKOUT_URL') . '/error',
+            ]);
+
+            $order->transaction_id = $source['id'];
+
+            $order->save();
+
             DB::commit();
+
+            return $source;
         } catch (\Throwable $e) {
             DB::rollBack();
-            abort(500, 'Something went wrong');
-        }
 
-        return $order->load('orderItems');
+            abort(500, 'Something went wrong');
+
+            return response([
+                'error' => $e->getMessage(),
+            ], 400);
+        }
     }
 }

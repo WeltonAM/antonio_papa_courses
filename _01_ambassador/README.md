@@ -16,6 +16,7 @@
 - Laral API
 - Docker
 - Redis
+- Stripe by Cartalyst
 
 ### How to run the project
 ```
