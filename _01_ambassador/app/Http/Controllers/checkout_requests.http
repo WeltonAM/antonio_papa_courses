@@ -30,3 +30,12 @@ Authorization: Bearer {{API_TOKEN}}
         }
     ]
 }
+
+### Confirm Order
+POST http://localhost:{{API_PORT}}/api/checkout/orders/confirm
+Content-Type: application/json
+Authorization: Bearer {{API_TOKEN}}
+
+{
+    "source": "cs_test_b1qQA0VMBFvRj1GU4j510oxhUwD03aFLQHUXFbExXninbxUmMjEbRCpq"
+}
