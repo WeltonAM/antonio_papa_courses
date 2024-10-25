@@ -41,6 +41,6 @@ Content-Type: application/json
 Authorization: Bearer {{API_TOKEN}}
 
 ### Get products (backend)
-GET http://localhost:{{API_PORT}}/api/ambassador/products/backend
+GET http://localhost:{{API_PORT}}/api/ambassador/products/backend?page=2
 Content-Type: application/json
 Authorization: Bearer {{API_TOKEN}}
