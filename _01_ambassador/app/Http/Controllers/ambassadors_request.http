@@ -54,3 +54,15 @@ Authorization: Bearer {{API_TOKEN}}
 GET http://localhost:{{API_PORT}}/api/ambassador/rankings
 Content-Type: application/json
 Authorization: Bearer {{API_TOKEN}}
+
+### Create link
+POST http://localhost:{{API_PORT}}/api/ambassador/links
+Content-Type: application/json
+Authorization: Bearer {{API_TOKEN}}
+
+{
+    "product_ids": [
+        2,
+        4
+    ]
+}
