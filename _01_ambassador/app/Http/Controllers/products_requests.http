@@ -19,12 +19,12 @@ Authorization: Bearer {{API_TOKEN}}
 }
 
 ### Get product
-GET http://localhost:{{API_PORT}}/api/admin/products/1
+GET http://localhost:{{API_PORT}}/api/admin/products/32
 Content-Type: application/json
 Authorization: Bearer {{API_TOKEN}}
 
 ### Update product
-PUT http://localhost:{{API_PORT}}/api/admin/products/1
+PUT http://localhost:{{API_PORT}}/api/admin/products/32
 Content-Type: application/json
 Authorization: Bearer {{API_TOKEN}}
 
@@ -36,6 +36,6 @@ Authorization: Bearer {{API_TOKEN}}
 }
 
 ### Delete product
-DELETE http://localhost:{{API_PORT}}/api/admin/products/1
+DELETE http://localhost:{{API_PORT}}/api/admin/products/32
 Content-Type: application/json
 Authorization: Bearer {{API_TOKEN}}

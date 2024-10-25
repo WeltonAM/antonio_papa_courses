@@ -15,6 +15,28 @@ namespace App\Models{
 /**
  * 
  *
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Link newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Link newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Link query()
+ */
+	class Link extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|LinkProduct newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|LinkProduct newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|LinkProduct query()
+ */
+	class LinkProduct extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * 
+ *
  * @property int $id
  * @property string $title
  * @property string|null $description
@@ -22,6 +44,7 @@ namespace App\Models{
  * @property string $price
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Database\Factories\ProductFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Product newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Product newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Product query()

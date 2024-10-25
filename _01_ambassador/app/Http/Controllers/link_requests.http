@@ -1,0 +1,7 @@
+@API_PORT = 8000
+@API_TOKEN = 1|PXvWJGyGejH7Gw2ZXCvDwtPl8wPglurFEOysD8LV7d4f83ac
+
+### Get links
+GET http://localhost:{{API_PORT}}/api/admin/users/1/links
+Content-Type: application/json
+Authorization: Bearer {{API_TOKEN}}

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AmbassadorController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LinkController;
 use App\Http\Controllers\ProductController;
 use App\Http\Middleware\ScopeAdminMiddleware;
 use Illuminate\Support\Facades\Route;
@@ -22,10 +23,9 @@ Route::prefix('admin')->group(function () {
         Route::get('user', [AuthController::class, 'user']);
 
         // PRODUCTS
-        Route::get('products', [ProductController::class, 'index'])->name('products');
-        Route::post('products', [ProductController::class, 'store'])->name('products.store');
-        Route::get('products/{product}', [ProductController::class, 'show'])->name('products.show');
-        Route::put('products/{product}', [ProductController::class, 'update'])->name('products.update');
-        Route::delete('products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+        Route::apiResource('products', ProductController::class);
+
+        // LINKS
+        Route::get('users/{id}/links', [LinkController::class, 'index'])->name('links.index');
     });
 });
