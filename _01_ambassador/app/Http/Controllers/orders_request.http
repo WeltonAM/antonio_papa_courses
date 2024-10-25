@@ -1,0 +1,7 @@
+@API_PORT = 8000
+@API_TOKEN = 1|5D6jj5wb8mebyzWLqwejRMlNas0tC1QNZFzAs4TF7dae8f5e
+
+### Get orders
+GET http://localhost:{{API_PORT}}/api/admin/orders
+Content-Type: application/json
+Authorization: Bearer {{API_TOKEN}}
