@@ -1,5 +1,5 @@
 @API_PORT = 8003
-@API_TOKEN = 4|WJMgQaU18b06kELJefV4WKWoNjy08EIYzQXiGSQNe5c40ac6
+@API_TOKEN = 6|Z6ccfrOeRKkoqom1a5b2kv13oatU4Vf7GN3N6Vs794d3b55e
 
 
 ### Login
@@ -7,7 +7,7 @@ POST http://localhost:{{API_PORT}}/api/ambassador/login
 Content-Type: application/json
 
 {
-    "email": "ansley.fahey@example.org",
+    "email": "nkutch@example.org",
     "password": "password"
 }
 
@@ -47,5 +47,10 @@ Authorization: Bearer {{API_TOKEN}}
 
 ### Get stats
 GET http://localhost:{{API_PORT}}/api/ambassador/stats
+Content-Type: application/json
+Authorization: Bearer {{API_TOKEN}}
+
+### Get rankings
+GET http://localhost:{{API_PORT}}/api/ambassador/rankings
 Content-Type: application/json
 Authorization: Bearer {{API_TOKEN}}

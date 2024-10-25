@@ -46,5 +46,6 @@ Route::prefix('ambassador')->group(function () {
 
     Route::middleware(['auth:sanctum', ScopeAmbassadorMiddleware::class])->group(function () {
         Route::get('stats', [StatsController::class, 'index'])->name('stats');
+        Route::get('rankings', [StatsController::class, 'rankings'])->name('rankings');
     });
 });
