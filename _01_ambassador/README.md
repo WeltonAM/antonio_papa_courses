@@ -17,6 +17,7 @@
 - Docker
 - Redis
 - Stripe by Cartalyst
+- MailHog
 
 ### How to run the project
 ```
