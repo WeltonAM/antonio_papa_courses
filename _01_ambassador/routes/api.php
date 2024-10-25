@@ -39,4 +39,7 @@ Route::prefix('admin')->group(function () {
 // AMBASSADOR routes
 Route::prefix('ambassador')->group(function () {
     common('ambassador');
+
+    Route::get('products/frontend', [ProductController::class, 'frontend'])->name('frontend.products');
+    Route::get('products/backend', [ProductController::class, 'backend'])->name('backend.products');
 });

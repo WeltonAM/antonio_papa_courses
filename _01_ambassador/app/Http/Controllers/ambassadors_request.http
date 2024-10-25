@@ -1,5 +1,5 @@
 @API_PORT = 8003
-@API_TOKEN = 2|E14fdfUIbVxQoMa2eujbNo37dD3RoEfe2Hutew5w4d75542e
+@API_TOKEN = 4|WJMgQaU18b06kELJefV4WKWoNjy08EIYzQXiGSQNe5c40ac6
 
 
 ### Login
@@ -32,5 +32,15 @@ Authorization: Bearer {{API_TOKEN}}
 
 ### Get user
 GET http://localhost:{{API_PORT}}/api/ambassador/user
+Content-Type: application/json
+Authorization: Bearer {{API_TOKEN}}
+
+### Get products (frontend)
+GET http://localhost:{{API_PORT}}/api/ambassador/products/frontend
+Content-Type: application/json
+Authorization: Bearer {{API_TOKEN}}
+
+### Get products (backend)
+GET http://localhost:{{API_PORT}}/api/ambassador/products/backend
 Content-Type: application/json
 Authorization: Bearer {{API_TOKEN}}
