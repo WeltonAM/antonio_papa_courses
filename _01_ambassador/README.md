@@ -15,6 +15,7 @@
 - Laravel
 - Laral API
 - Docker
+- Redis
 
 ### How to run the project
 ```

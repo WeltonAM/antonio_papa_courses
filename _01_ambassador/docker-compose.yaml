@@ -21,3 +21,8 @@ services:
       - ./storage/dbdata:/var/lib/mysql
     ports:
       - 3306:3306
+
+  redis:
+    image: redis:alpine
+redi    ports:
+      - 6379:6379
