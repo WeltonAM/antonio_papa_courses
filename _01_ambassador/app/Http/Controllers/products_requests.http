@@ -1,0 +1,41 @@
+@API_PORT = 8000
+@API_TOKEN = 8|b8skqtb46o5uHU1AQj63Vo7M1SEP79RBv2tuUql6fba9865d
+
+### Get products
+GET http://localhost:{{API_PORT}}/api/admin/products
+Content-Type: application/json
+Authorization: Bearer {{API_TOKEN}}
+
+### Create product
+POST http://localhost:{{API_PORT}}/api/admin/products
+Content-Type: application/json
+Authorization: Bearer {{API_TOKEN}}
+
+{
+    "title": "Product 1",
+    "description": "Description 1",
+    "image": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
+    "price": 10
+}
+
+### Get product
+GET http://localhost:{{API_PORT}}/api/admin/products/1
+Content-Type: application/json
+Authorization: Bearer {{API_TOKEN}}
+
+### Update product
+PUT http://localhost:{{API_PORT}}/api/admin/products/1
+Content-Type: application/json
+Authorization: Bearer {{API_TOKEN}}
+
+{
+    "title": "Product 1 updated",
+    "description": "Description 1 updated",
+    "image": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png",
+    "price": 10
+}
+
+### Delete product
+DELETE http://localhost:{{API_PORT}}/api/admin/products/1
+Content-Type: application/json
+Authorization: Bearer {{API_TOKEN}}
