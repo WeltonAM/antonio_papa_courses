@@ -1,6 +1,32 @@
 @API_PORT = 8003
-@API_TOKEN = 8|b8skqtb46o5uHU1AQj63Vo7M1SEP79RBv2tuUql6fba9865d
+@API_TOKEN = 7|unUMhHCe98rfpfnHr7UWuDQblz6PjxLpcI5lyJjH91629600
 
 ### Get links
 GET http://localhost:{{API_PORT}}/api/checkout/links/9S7vaD
 Content-Type: application/json
+
+### Create order
+POST http://localhost:{{API_PORT}}/api/checkout/orders
+Content-Type: application/json
+Authorization: Bearer {{API_TOKEN}}
+
+{
+    "code": "9S7vaD",
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "john@doe.com",
+    "address": "123 Main St",
+    "country": "US",
+    "city": "New York",
+    "zip": 10001,
+    "products": [
+        {
+            "product_id": 1,
+            "quantity": 1
+        },
+        {
+            "product_id": 2,
+            "quantity": 2
+        }
+    ]
+}

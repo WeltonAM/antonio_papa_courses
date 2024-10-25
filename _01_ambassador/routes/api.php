@@ -19,9 +19,9 @@ function common($scopeMiddleware)
         $scopeMiddleware === 'admin' ? ScopeAdminMiddleware::class : ScopeAmbassadorMiddleware::class
     ])->group(function () {
         Route::get('user', [AuthController::class, 'user']);
-        Route::post('logout', [AuthController::class, 'logout'])->name('logout');
-        Route::post('users/info', [AuthController::class, 'updateInfo'])->name('users.info');
-        Route::post('users/password', [AuthController::class, 'updatePassword'])->name('users.password');
+        Route::post('logout', [AuthController::class, 'logout']);
+        Route::post('users/info', [AuthController::class, 'updateInfo']);
+        Route::post('users/password', [AuthController::class, 'updatePassword']);
     });
 }
 
@@ -30,10 +30,10 @@ Route::prefix('admin')->group(function () {
     common('admin');
 
     Route::middleware(['auth:sanctum', ScopeAdminMiddleware::class])->group(function () {
-        Route::get('ambassadors', [AmbassadorController::class, 'index'])->name('ambassadors');
+        Route::get('ambassadors', [AmbassadorController::class, 'index']);
         Route::apiResource('products', ProductController::class);
-        Route::get('users/{id}/links', [LinkController::class, 'index'])->name('links.index');
-        Route::get('orders', [OrderController::class, 'index'])->name('orders');
+        Route::get('users/{id}/links', [LinkController::class, 'index']);
+        Route::get('orders', [OrderController::class, 'index']);
     });
 });
 
@@ -41,18 +41,19 @@ Route::prefix('admin')->group(function () {
 Route::prefix('ambassador')->group(function () {
     common('ambassador');
 
-    Route::get('products/frontend', [ProductController::class, 'frontend'])->name('frontend.products');
-    Route::get('products/backend', [ProductController::class, 'backend'])->name('backend.products');
+    Route::get('products/frontend', [ProductController::class, 'frontend']);
+    Route::get('products/backend', [ProductController::class, 'backend']);
 
     Route::middleware(['auth:sanctum', ScopeAmbassadorMiddleware::class])->group(function () {
-        Route::get('stats', [StatsController::class, 'index'])->name('stats');
-        Route::get('rankings', [StatsController::class, 'rankings'])->name('rankings');
+        Route::get('stats', [StatsController::class, 'index']);
+        Route::get('rankings', [StatsController::class, 'rankings']);
 
-        Route::post('links', [LinkController::class, 'store'])->name('links.store');
+        Route::post('links', [LinkController::class, 'store']);
     });
 });
 
 //CHECKOUT
 Route::prefix('checkout')->group(function () {
-    Route::get('links/{code}', [LinkController::class, 'index'])->name('checkout');
+    Route::get('links/{code}', [LinkController::class, 'index']);
+    Route::post('orders', [OrderController::class, 'store']);
 });
