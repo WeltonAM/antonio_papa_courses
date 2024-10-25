@@ -5,6 +5,8 @@ import store from './store';
 import vuetify from './plugins/vuetify';
 import { loadFonts } from './plugins/webfontloader';
 import axios from 'axios';
+import 'vuetify/styles';
+import 'vuetify/dist/vuetify.min.css';
 
 axios.defaults.baseURL = import.meta.env.VITE_API_URL;
 axios.defaults.withCredentials = true;

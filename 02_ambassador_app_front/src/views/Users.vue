@@ -1,6 +1,27 @@
 <template>
   <div>
-    <v-simple-table>
+  <v-table theme="dark">
+    <thead>
+      <tr>
+        <th class="text-left">
+          Name
+        </th>
+        <th class="text-left">
+          Calories
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        v-for="item in desserts"
+        :key="item.name"
+      >
+        <td>{{ item.name }}</td>
+        <td>{{ item.calories }}</td>
+      </tr>
+    </tbody>
+  </v-table>
+    <v-table>
       <template v-slot:default>
         <thead>
         <tr>
@@ -21,7 +42,7 @@
         </tr>
         </tbody>
       </template>
-    </v-simple-table>
+    </v-table>
 
     <div class="text-center">
       <v-pagination
