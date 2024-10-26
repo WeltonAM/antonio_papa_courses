@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About the Ambassor Project
+## About the Admin API
 
 
 ## Project Stack
@@ -15,9 +15,7 @@
 - Laravel
 - Laravel API
 - Docker
-- Redis
-- Stripe by Cartalyst
-- MailHog
+- Sanctum
 
 ### How to run the project
 ```
