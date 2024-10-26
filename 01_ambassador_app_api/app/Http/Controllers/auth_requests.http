@@ -1,5 +1,5 @@
-@API_PORT = 8003
-@API_TOKEN = 3|ZQ56ib4godBNm5gm2kSvdZc5K2j22gzGPS17WzzR80472637
+@API_PORT = 8000
+@API_TOKEN = 1|7F0VgxIfdLmxb78GutePYDirey2I5DI5HubFxBao6579091f
 
 ### Register
 POST http://localhost:{{API_PORT}}/api/admin/register

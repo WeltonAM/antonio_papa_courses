@@ -45,10 +45,12 @@ class AuthController extends Controller
 
         $jwt = $user->createToken('token', [$scope])->plainTextToken;
 
+        $cookie = cookie('jwt', $jwt, now()->addDays(30));
+
         return response()->json([
             'message' => 'Logged in successfully',
             'token' => $jwt,
-        ]);
+        ])->withCookie($cookie);
     }
 
     public function user(Request $request)
