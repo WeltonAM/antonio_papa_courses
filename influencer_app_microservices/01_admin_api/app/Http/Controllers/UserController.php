@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserCreateRequest;
+use App\Http\Requests\UserUpdateRequest;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -11,44 +12,38 @@ class UserController extends Controller
 {
     public function index()
     {
-        return User::get([
-            'first_name',
-            'last_name',
-            'email',
-        ]);
+        return User::select('id', 'first_name', 'last_name', 'email')->paginate();
     }
 
     public function show(User $user)
     {
-        return User::find($user->id);
+        return User::select('id', 'first_name', 'last_name', 'email')->find($user->id);
     }
 
-    public function store(Request $request)
+    public function store(UserCreateRequest $request)
     {
-        $user = User::create([
-            'first_name' => $request->input('first_name'),
-            'last_name' => $request->input('last_name'),
-            'email' => $request->input('email'),
-            'password' => Hash::make($request->input('password')),
+        $user = User::create($request->only('first_name', 'last_name', 'email') + [
+            'password' => Hash::make(123),
         ]);
 
         return response([
+            'id' => $user->id,
             'first_name' => $user->first_name,
             'last_name' => $user->last_name,
             'email' => $user->email,
         ], Response::HTTP_CREATED);
     }
 
-    public function update(User $user, Request $request)
+    public function update(User $user, UserUpdateRequest $request)
     {
-        $user->update([
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name,
-            'email' => $request->email,
-            'password' => $request->password,
-        ]);
+        $user->update($request->only([
+            'first_name',
+            'last_name',
+            'email',
+        ]));
 
         return response([
+            'id' => $user->id,
             'first_name' => $user->first_name,
             'last_name' => $user->last_name,
             'email' => $user->email,
