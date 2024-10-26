@@ -1,0 +1,6 @@
+@API_PORT=8000
+@TOKEN=
+
+### Get chart
+GET http://localhost:{{API_PORT}}/api/chart
+Authorization: Bearer {{TOKEN}}

@@ -12,6 +12,7 @@ class OrderFactory extends Factory
             'first_name' => fake()->firstName(),
             'last_name' => fake()->lastName(),
             'email' => fake()->email(),
+            'created_at' => fake()->dateTime(),
         ];
     }
 }

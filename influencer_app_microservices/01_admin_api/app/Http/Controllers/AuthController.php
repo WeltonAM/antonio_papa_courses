@@ -11,7 +11,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 class AuthController extends Controller
 {
-
     public function register(AuthRegisterRequest $request)
     {
         $user = User::create($request->only('first_name', 'last_name', 'email') + [
@@ -33,13 +32,24 @@ class AuthController extends Controller
 
             $token = $user->createToken('admin')->accessToken;
 
-            return [
+            $cookie = cookie('jwt', $token, 3600);
+
+            return response([
                 'token' => $token,
-            ];
+            ])->withCookie($cookie);
         }
 
         return response()->json([
             'error' => 'Invalid credentials',
         ], Response::HTTP_UNAUTHORIZED);
+    }
+
+    public function logout()
+    {
+        $cookie = cookie()->forget('jwt');
+
+        return response()->json([
+            'message' => 'Logged out successfully',
+        ])->withCookie($cookie);
     }
 }

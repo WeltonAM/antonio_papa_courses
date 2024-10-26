@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Role;
+use App\Models\UserRole;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
