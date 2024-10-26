@@ -7,16 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
 
-class Role extends Model
+class Permission extends Model
 {
-    use HasApiTokens;
+    use HasApiTokens, HasFactory, Notifiable;
 
     protected $guarded = ['id'];
-
-    public $timestamps = false;
-
-    public function permissions()
-    {
-        return $this->belongsToMany(Permission::class, 'role_permission');
-    }
 }
