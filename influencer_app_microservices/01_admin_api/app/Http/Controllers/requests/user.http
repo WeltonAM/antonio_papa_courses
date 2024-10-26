@@ -1,14 +1,20 @@
+@API_PORT = 8000
+@TOKEN = eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZTA0MDFlZDExODRkOGEyYTAzOGFkMzc3OWQ2NWViMzdlYzM5Mjc3MTE5NjNmZGJiODZmOTIzZDMzM2E0MDhkNjIyMzZiNGQyZmI3NmY4YmUiLCJpYXQiOjE3Mjk5MTU1MDQuMTAyODEyLCJuYmYiOjE3Mjk5MTU1MDQuMTAyODE2LCJleHAiOjE3NjE0NTE1MDQuMDkzNjAzLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.aYrghKRi4vzZKpyNFNsTLZx2sv8jJ8jaQP7pSISQA7flNsgq2iNL6d_hH0zfV-OcB4RR4dv4LmBmWjnuPPCjiVw7LE9g3Dy5coP0D9eDKCAJGKO77k9XjWYmqZ3gKBX53E9Dma8NS-V8ZW34fvfRFhjhwN7JmV6jkToI-RYz1ZMoWBBGD5M6pAw6KQRC9E_YNtSpr_GT2kjGMC4Y3_GsLCzp_TcoXuSbJNugKxc98y7ZB3E0xLqSgOSQXzNGcANsSK7k-Y_tjwNCbFgAsHiZ-KeFQLl6ikh5YIxjKJkSwLZq0csGAOGy-2wEBMSdt91jaPNfL5E3KPjprvWVkZZGDulXjDyojoAAVI_qNih6enz8540IkhuSGTSqHFrbL57fF4X3ld8tw1kLjTRVmlvtz7B0_0RWalicKdiDgXeF0AntSqmMn5CsQWJgBzqcVYhYqICLzSlVaprDdgDvCUkkjsVQNrNvGj5mphy-THNnoc2fpeIJgPPZWt5VEI73vTy8XRdw7oSs-VWzYZUYcw-XQ6YEmXtgQNW9eWRG5XveTVY5--9Z1J9saKlIUAlM_RM6ESV6nhg6qHK6XLQ3vDhLJWla5kCboyCNDLeCq67A5gqZNm3G-poDcbmC_N1oLhWB78wskgmNdQaA_gtn9w6lsBvq7MIERJTEc4YKJaNlmH0
+
 ### Get all users
-GET http://localhost:8000/api/users
+GET http://localhost:{{API_PORT}}/api/users
 Accept: application/json
+Authorization: Bearer {{TOKEN}}
 
 ### Get a single user
-GET http://localhost:8000/api/users/2
+GET http://localhost:8000/api/users/1
 Accept: application/json
+Authorization: Bearer {{TOKEN}}
 
 ### Create a new user
 POST http://localhost:8000/api/users
 Content-Type: application/json
+Authorization: Bearer {{TOKEN}}
 
 {
     "first_name": "John",
@@ -19,6 +25,7 @@ Content-Type: application/json
 ### Update a user
 PUT http://localhost:8000/api/users/25
 Content-Type: application/json
+Authorization: Bearer {{TOKEN}}
 
 {
     "first_name": "Jane",
@@ -27,4 +34,6 @@ Content-Type: application/json
 }
 
 ### Delete a user
-DELETE http://localhost:8000/api/users/24
+DELETE http://localhost:8000/api/users/1
+Content-Type: application/json
+Authorization: Bearer {{TOKEN}}
