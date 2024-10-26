@@ -32,6 +32,13 @@ class User extends Authenticatable
 
     public function permissions()
     {
+        \Log::info($this->role->permissions->pluck('name'));
         return $this->role->permissions->pluck('name');
+    }
+
+    public function hasAccess($access)
+    {
+        \Log::info('hasAccess: '. $this->permissions()->contains($access));
+        return $this->permissions->contains($access);
     }
 }

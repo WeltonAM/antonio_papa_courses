@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\OrderResource;
 use App\Models\Order;
+use Illuminate\Support\Facades\Gate;
 
 class OrderController extends Controller
 {
     public function index()
     {
+        Gate::allows('view', 'orders');
+
         $order = Order::paginate();
 
         return OrderResource::collection($order);
@@ -16,11 +19,15 @@ class OrderController extends Controller
 
     public function show($id)
     {
+        Gate::allows('view', 'orders');
+
         return new OrderResource(Order::find($id));
     }
 
     public function export()
     {
+        Gate::allows('view', 'orders');
+
         $headers = [
             'Content-Type' => 'text/csv',
             'Content-Disposition' => 'attachment; filename="orders.csv"',

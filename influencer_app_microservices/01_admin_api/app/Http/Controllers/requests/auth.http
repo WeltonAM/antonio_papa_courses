@@ -5,8 +5,8 @@ POST http://localhost:{{API_PORT}}/api/login
 Content-Type: application/json
 
 {
-    "email": "jane@example.com",
-    "password": "123"
+    "email": "mariano89@example.net",
+    "password": "password"
 }
 
 ### Register a user
