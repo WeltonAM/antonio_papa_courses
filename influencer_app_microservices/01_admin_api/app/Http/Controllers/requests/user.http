@@ -1,5 +1,5 @@
 @API_PORT = 8000
-@TOKEN = eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZTA0MDFlZDExODRkOGEyYTAzOGFkMzc3OWQ2NWViMzdlYzM5Mjc3MTE5NjNmZGJiODZmOTIzZDMzM2E0MDhkNjIyMzZiNGQyZmI3NmY4YmUiLCJpYXQiOjE3Mjk5MTU1MDQuMTAyODEyLCJuYmYiOjE3Mjk5MTU1MDQuMTAyODE2LCJleHAiOjE3NjE0NTE1MDQuMDkzNjAzLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.aYrghKRi4vzZKpyNFNsTLZx2sv8jJ8jaQP7pSISQA7flNsgq2iNL6d_hH0zfV-OcB4RR4dv4LmBmWjnuPPCjiVw7LE9g3Dy5coP0D9eDKCAJGKO77k9XjWYmqZ3gKBX53E9Dma8NS-V8ZW34fvfRFhjhwN7JmV6jkToI-RYz1ZMoWBBGD5M6pAw6KQRC9E_YNtSpr_GT2kjGMC4Y3_GsLCzp_TcoXuSbJNugKxc98y7ZB3E0xLqSgOSQXzNGcANsSK7k-Y_tjwNCbFgAsHiZ-KeFQLl6ikh5YIxjKJkSwLZq0csGAOGy-2wEBMSdt91jaPNfL5E3KPjprvWVkZZGDulXjDyojoAAVI_qNih6enz8540IkhuSGTSqHFrbL57fF4X3ld8tw1kLjTRVmlvtz7B0_0RWalicKdiDgXeF0AntSqmMn5CsQWJgBzqcVYhYqICLzSlVaprDdgDvCUkkjsVQNrNvGj5mphy-THNnoc2fpeIJgPPZWt5VEI73vTy8XRdw7oSs-VWzYZUYcw-XQ6YEmXtgQNW9eWRG5XveTVY5--9Z1J9saKlIUAlM_RM6ESV6nhg6qHK6XLQ3vDhLJWla5kCboyCNDLeCq67A5gqZNm3G-poDcbmC_N1oLhWB78wskgmNdQaA_gtn9w6lsBvq7MIERJTEc4YKJaNlmH0
+@TOKEN = eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiOWJlYmYwNmZiMmEyNmU1NWRiZDA0MjYwNDYzM2QwODM0MDNiMTViYzljNzRmZDBjN2QyNjEwMmFlNTdlYmQwZDQxNWE2OTg1YTc0MjFlZDgiLCJpYXQiOjE3Mjk5NTQxNzYuMjgxNTM2LCJuYmYiOjE3Mjk5NTQxNzYuMjgxNTQxLCJleHAiOjE3NjE0OTAxNzYuMTM3Mjk4LCJzdWIiOiIyMSIsInNjb3BlcyI6W119.TMDJPEH3HKDVqDeJ11JCb89XCfXPPuE9gdj_Y_6OR14KncQM6J3ZAE8XAy6SMF1oL0Jpzd_alkwSC31LcVyFysLU4DTU14h4QpKt-nvsLNdierhc-XuYXci7hMnvEJjiSCF-LubiZhU5iPQfr2GcVF87WvFFX1yd42glHbbvPJh3W60plWyyvYn5_n9eZkS8fKQ5zEty5GxO_zQpbBuECXu8encLaeYnb0XRPAU6Ao2gbf1xPvsVukKx9CIlo6aDyba5e3MyWHbJexlu5jj9mgrIcCKtfm4LQjXyDmuzEFEsQ5UrkpP695epK6hNL987ZEFHPLrdV5u17f2jjxCoNjdjkVol5Y9oRYZNFJKgq-TBDPz6porLCBzhFYKTurxp3kBpU5Ym0X9ePGP1fCD5io0jtIZEIabrgiMVslo_qwiIiZ2ntry_l9BQMaBtvc3LAnVjwIg39RWoetXSAF9ZhidyYtvXWkuZjYv8lXgY5fT6ArKzfSzzuEv_yLG4q7bKiH3YsjLUANMrYtshwAW2J1iMelDjrxCHswOAEpqPbVpdHENg8jyL5N4NLSCQ6DmVaPXj6UmDokFrMiy2iUMh6sNngyIV5NAjLFoTE_4xEkbtZJ2fKi61HPjwXPyLW-EuNq8mSZL2kJu_OKkskzY6znwCRcLaDCpHhHcawcb-a60
 
 ### Get all users
 GET http://localhost:{{API_PORT}}/api/users
@@ -19,7 +19,8 @@ Authorization: Bearer {{TOKEN}}
 {
     "first_name": "John",
     "last_name": "Doe",
-    "email": "john@example.com"
+    "email": "john@example.com",
+    "role_id": 1
 }
 
 ### Update a user
@@ -31,6 +32,7 @@ Authorization: Bearer {{TOKEN}}
     "first_name": "Jane",
     "last_name": "Doe",
     "email": "jane@example.com",
+    "role_id": 2
 }
 
 ### Delete a user

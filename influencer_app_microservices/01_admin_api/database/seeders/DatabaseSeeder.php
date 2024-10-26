@@ -13,6 +13,6 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class
         ]);
 
-        $this->call(OAuthClientsSeeder::class);
+        // $this->call(OAuthClientsSeeder::class);
     }
 }

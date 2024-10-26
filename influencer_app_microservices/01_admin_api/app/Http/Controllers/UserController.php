@@ -6,8 +6,8 @@ use App\Http\Requests\UpdateInfoRequest;
 use App\Http\Requests\UpdatePasswordRequest;
 use App\Http\Requests\UserCreateRequest;
 use App\Http\Requests\UserUpdateRequest;
+use App\Http\Resources\UserResource;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,26 +16,24 @@ class UserController extends Controller
 {
     public function index()
     {
-        return User::select('id', 'first_name', 'last_name', 'email')->paginate();
+        $users = User::paginate();
+        return UserResource::collection($users);
     }
 
     public function show(User $user)
     {
-        return User::select('id', 'first_name', 'last_name', 'email')->find($user->id);
+        $user = User::find($user->id);
+
+        return new UserResource($user);
     }
 
     public function store(UserCreateRequest $request)
     {
-        $user = User::create($request->only('first_name', 'last_name', 'email') + [
-            'password' => Hash::make(123),
+        $user = User::create($request->only('first_name', 'last_name', 'email', 'role_id') + [
+            'password' => Hash::make($request->input('password')),
         ]);
 
-        return response([
-            'id' => $user->id,
-            'first_name' => $user->first_name,
-            'last_name' => $user->last_name,
-            'email' => $user->email,
-        ], Response::HTTP_CREATED);
+        return response(new UserResource($user), Response::HTTP_CREATED);
     }
 
     public function update(User $user, UserUpdateRequest $request)
@@ -44,14 +42,10 @@ class UserController extends Controller
             'first_name',
             'last_name',
             'email',
+            'role_id',
         ]));
 
-        return response([
-            'id' => $user->id,
-            'first_name' => $user->first_name,
-            'last_name' => $user->last_name,
-            'email' => $user->email,
-        ], Response::HTTP_ACCEPTED);
+        return response(new UserResource($user), Response::HTTP_ACCEPTED);
     }
 
     public function destroy(User $user)
@@ -63,7 +57,7 @@ class UserController extends Controller
 
     public function user()
     {
-        return Auth::user();
+        return new UserResource(Auth::user());
     }
 
     public function updateInfo(UpdateInfoRequest $request)
@@ -76,12 +70,7 @@ class UserController extends Controller
             'email',
         ]));
 
-        return response([
-            'id' => $user->id,
-            'first_name' => $user->first_name,
-            'last_name' => $user->last_name,
-            'email' => $user->email,
-        ], Response::HTTP_ACCEPTED);
+        return response(new UserResource($user), Response::HTTP_ACCEPTED);
     }
 
     public function updatePassword(UpdatePasswordRequest $request)
@@ -92,11 +81,6 @@ class UserController extends Controller
             'password' => Hash::make($request->input('password')),
         ]));
 
-        return response([
-            'id' => $user->id,
-            'first_name' => $user->first_name,
-            'last_name' => $user->last_name,
-            'email' => $user->email,
-        ], Response::HTTP_ACCEPTED);
+        return response(new UserResource($user), Response::HTTP_ACCEPTED);
     }
 }

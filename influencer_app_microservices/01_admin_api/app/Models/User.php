@@ -18,10 +18,15 @@ class User extends Authenticatable
         'last_name',
         'email',
         'password',
+        'role_id',
     ];
 
     protected $hidden = [
         'password',
     ];
 
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
 }
