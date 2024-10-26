@@ -1,0 +1,33 @@
+@API_PORT = 8000
+@TOKEN = eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZDQ2YWM3ZWRiMWJhNWU3ZjEzYmYwNjQ3Yzk4NGIyYTNlYTFhOTM2YWFiNDllZTEyNjgzYWE1YWYxZGY4NzI2ZDliMGY5NGI4ODlkMjIxNmUiLCJpYXQiOjE3Mjk5MTc3NjcuOTU0MzQzLCJuYmYiOjE3Mjk5MTc3NjcuOTU0MzQ4LCJleHAiOjE3NjE0NTM3NjcuOTExMDg4LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.iGk8oJYpY3TCkJweYm6ezUKM5S5K5wLl_d1DQ1c9toecK-bjU2bgx_EzgSL-rG6OzDS9oddfBS3Wp2hKvISVTuVh3AvVhyMUm3kJL5HGH9Q-TvSNLVbF6i_ABmsXR-9Grf8ZtfkMaJW5RjTYal8eEEI2mQ11SOzjEDPe8gkF9movfnH-kLS3IzspeDADq0JSwHNy1kC7akuOX8knWZJTPLzzEbOIXKm3k3BaV_JUa6Y5AW5RZxtqb9CXGqfJPBGcfmaKbvi1CzK2teidRlZsGiuQ5HNub-tvH0X_EJaemQcQYY0yF1JvDXGxbWjsLyO7ZUuzOZctRZplzPIP2me0ckxJuI-g7GW3lskza7IC7LFve7tsYco3yeWN2bmijdYE1UxkU7vSdYVVTN106hmHNkC1EpNvYlstpnrebC1KD6P-TNHZEtRDvpQoEmvdlAxzff7rQoV_DsWccwuh3I3XsRw9zDMWXBSHjAGvLAxrWsAFSlwRqtXvpgn0GSBUpHx3Wg_AlkejHaQErMmwzZivok4rVJXAXmN5cqwM6IIiglERkDxEq-CQgywR8erfBKO2Y8GLWoGfea21VCXHfOVJuZeGWJvxB1zgRJDtnrmtB5VjRfQ6H8THL4n0Hm3cUNQpUyAyVkgX12uJHS4r8WmYmrO0LmGbOFdrIx7TXQzUHro
+@ROLE_ID = 1
+
+### Get all roles
+GET http://localhost:{{API_PORT}}/api/roles
+Authorization: Bearer {{TOKEN}}
+
+### Create a role
+POST http://localhost:{{API_PORT}}/api/roles
+Content-Type: application/json
+Authorization: Bearer {{TOKEN}}
+
+{
+    "name": "Test Role"
+}
+
+### Get a role
+GET http://localhost:{{API_PORT}}/api/roles/{{ROLE_ID}}
+Authorization: Bearer {{TOKEN}}
+
+### Update a role
+PUT http://localhost:{{API_PORT}}/api/roles/{{ROLE_ID}}
+Content-Type: application/json
+Authorization: Bearer {{TOKEN}}
+
+{
+    "name": "admin"
+}
+
+### Delete a role
+DELETE http://localhost:{{API_PORT}}/api/roles/{{ROLE_ID}}
+Authorization: Bearer {{TOKEN}}
