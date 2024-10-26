@@ -1,0 +1,41 @@
+@API_PORT = 8000
+@TOKEN = eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiYzNkOWUwM2ZmZGE4MGFiZjFiN2UzMjdjZDlhNzkwMjQyM2RiNTFmMzJmN2JkMTljOTcwMTY4NGM0ODE2MjA2Y2FjYTQ1MzU0OTA3YWI3OWYiLCJpYXQiOjE3Mjk5NjIwMTguMDg1ODYzLCJuYmYiOjE3Mjk5NjIwMTguMDg1ODcsImV4cCI6MTc2MTQ5ODAxOC4wNjcwMjksInN1YiI6IjIxIiwic2NvcGVzIjpbXX0.YuKCgETnSnEWrVlFxh93D15ZGOp_E4QEIX83-bZHRFP8dAKjNd3Zo0r9gGRWdQHv5y5CjgWedOjL60dzV8RZbHnDBqkeweMP7j9xNtqv7A7l7fIfh7obRo6bH5uILVgqmDnLrtytIFxSNjxITorY72Oa8uqdfY9F1QVu7tPLcO7ZxmmhWuFdTtcnFrSbyVucAVRjgWnQLPkUiOOo-sMdESrxMjpVQRQIY1oxOWLhGhBj3bLn759jjwuqIqLwbLiKrG6N8RXlANKlZpAsG3hjxPPguiFNgzexSeeB6dz0A8X76GYUfcTr6dKIRgUKelOmmZDiBOumcYY_Pje6Ke1G35iQzcOOQ8e8_VIRdUszO5PFS2g4foftJ_-WgQJSkRf4kXiSEvomdawcF-AEihlabojjx0zDchMAqeRwLeIkNQWn0-4JH_IYPFFrodVqcILW5NMwpOrNbCkkN4BXKuHdzHwPG-PkF3WLQphHOiYJzt1niQmdMfoDNnU0SwXoEAUwtY2N_e0G-Mey4J_1ae_ZaBNBJZQvS4ldhBczYi-1TdQjhtY_SepgJPh2d1CC0xYJ7zhzho_idl3v31kdWv_OShpNfXPGvquyLj7EFQUwCIIVa9EYNa6EVztNYs42EhyaMM1GUKXOZj8RwTRxZVWdvs33x0JhUuPf6spQ1U8BSLA
+
+### Get all products
+GET http://localhost:{{API_PORT}}/api/products
+Accept: application/json
+Authorization: Bearer {{TOKEN}}
+
+### Get a single product
+GET http://localhost:{{API_PORT}}/api/products/1
+Accept: application/json
+Authorization: Bearer {{TOKEN}}
+
+### Create a new product
+POST http://localhost:{{API_PORT}}/api/products
+Content-Type: application/json
+Authorization: Bearer {{TOKEN}}
+
+{
+    "title": "Product 1",
+    "description": "This is a product",
+    "image": "https://via.placeholder.com/150",
+    "price": 10
+}
+
+### Update a product
+PUT http://localhost:{{API_PORT}}/api/products/31
+Content-Type: application/json
+Authorization: Bearer {{TOKEN}}
+
+{
+    "title": "Product 2",
+    "description": "This is a product",
+    "image": "https://via.placeholder.com/150",
+    "price": 20
+}
+
+### Delete a product
+DELETE http://localhost:{{API_PORT}}/api/products/31
+Content-Type: application/json
+Authorization: Bearer {{TOKEN}}
