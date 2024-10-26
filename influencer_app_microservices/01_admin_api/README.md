@@ -15,7 +15,7 @@
 - Laravel
 - Laravel API
 - Docker
-- Sanctum
+- Laravel Passport
 
 ### How to run the project
 ```
